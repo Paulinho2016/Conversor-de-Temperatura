@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,9 +10,21 @@ namespace ConversordeTemperatura.Classes
 {
     class Gerenciador
     {
-        static string Opcao, ValorGraus;
+        #region VARIÁVEIS
+
+        static string Opcao;
+        static string ValorGraus;        
         static bool Decisao;
 
+        #endregion
+
+
+
+        #region MÉTODOS
+
+        /// <summary>
+        /// Método sem retorno que dispara a inicialização da aplicação.
+        /// </summary>
         public static void Inicializacao()
         {
             Console.Clear();
@@ -23,7 +36,9 @@ namespace ConversordeTemperatura.Classes
             MenuPrincipal();
         }
 
-
+        /// <summary>
+        /// Método sem retorno que executa a exibição e manipulação do Menu Principal.
+        /// </summary>
         static void MenuPrincipal()
         {
             do
@@ -76,6 +91,9 @@ namespace ConversordeTemperatura.Classes
             Etapa1(Convert.ToInt32(Opcao));
         }
 
+        /// <summary>
+        /// Método sem retorno que executa a exibição e manipulação do Menu de Conversões.
+        /// </summary>
         static void MenuConversor()
         {
             do
@@ -133,6 +151,9 @@ namespace ConversordeTemperatura.Classes
             Etapa2(Convert.ToInt32(Opcao));
         }
 
+        /// <summary>
+        /// Método responsável por encerrar a aplicação.
+        /// </summary>
         static void Encerramento()
         {
             Console.WriteLine("\n=======================");
@@ -142,6 +163,10 @@ namespace ConversordeTemperatura.Classes
             Environment.Exit(1);
         }
 
+        /// <summary>
+        /// Método sem retorno que contrala a opção escolhida no Menu Principal.
+        /// </summary>
+        /// <param name="escolha">Inteiro que representa a a opção do Menu Principal.</param>
         static void Etapa1(int escolha)
         {
             Console.Clear();
@@ -157,10 +182,14 @@ namespace ConversordeTemperatura.Classes
 
                 case 3:
                     Encerramento();
-                    break;                
+                    break;
             }
         }
 
+        /// <summary>
+        /// Método sem retorno que dispara a Conversão de Temperatura, recebendo com argumento o tipo de conversão escolhida.
+        /// </summary>
+        /// <param name="escolha">Inteiro que representa a escolha do tipo de conversão no Menu Conversão de temperatura</param>
         static void Etapa2(int escolha)
         {
             switch (escolha)
@@ -202,7 +231,7 @@ namespace ConversordeTemperatura.Classes
 
                     } while (!Decisao);
 
-                    Converter(Convert.ToDecimal(ValorGraus));                    
+                    Converter(Convert.ToDecimal(ValorGraus));
                     break;
 
                 case 3:
@@ -222,7 +251,7 @@ namespace ConversordeTemperatura.Classes
 
                     } while (!Decisao);
 
-                    Converter(Convert.ToDecimal(ValorGraus));                    
+                    Converter(Convert.ToDecimal(ValorGraus));
                     break;
 
                 case 4:
@@ -242,7 +271,7 @@ namespace ConversordeTemperatura.Classes
 
                     } while (!Decisao);
 
-                    Converter(Convert.ToDecimal(ValorGraus));                    
+                    Converter(Convert.ToDecimal(ValorGraus));
                     break;
 
                 case 5:
@@ -282,7 +311,7 @@ namespace ConversordeTemperatura.Classes
 
                     } while (!Decisao);
 
-                    Converter(Convert.ToDecimal(ValorGraus));                    
+                    Converter(Convert.ToDecimal(ValorGraus));
                     break;
 
                 case 7:
@@ -291,6 +320,10 @@ namespace ConversordeTemperatura.Classes
             }
         }
 
+        /// <summary>
+        /// Método sem retorno responsável por converter e exibir resultado.
+        /// </summary>
+        /// <param name="graus">Decimal que representa o valor da Temperatura a sem convertida.</param>
         static void Converter(decimal graus)
         {
             switch (Convert.ToUInt32(Opcao))
@@ -425,13 +458,17 @@ namespace ConversordeTemperatura.Classes
             }
         }
 
+        /// <summary>
+        /// Método Booleano que Valida o valor da temperatura coletada para conversãp.
+        /// </summary>
+        /// <returns></returns>
         static bool ValidarValor()
         {
             if (ValorGraus.Length < 1)
             {
                 Console.WriteLine("===========================");
                 Console.WriteLine("Nenhum valor foi informado!");
-                Console.WriteLine("===========================");                
+                Console.WriteLine("===========================");
                 Thread.Sleep(2500);
                 return false;
             }
@@ -454,5 +491,7 @@ namespace ConversordeTemperatura.Classes
             }
             return true;
         }
-    }    
+
+        #endregion
+    }
 }

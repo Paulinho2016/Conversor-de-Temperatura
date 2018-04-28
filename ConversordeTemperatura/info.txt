@@ -1,0 +1,22 @@
+﻿==============================================
+       SOBRE O CONVERSOR DE TEMPERATURA
+==============================================
+
+===========
+INTRODUÇÂO
+===========
+Essa aplicação em C# Console, foi desenvolvida
+no intuito de exercitar o uso da linguagem C#.
+Tem como objetivo Converter valores de Temperatura
+nos tipos:
+
+   -CElSIUS
+   -KELVIN
+   -FAHRENHEIT
+==================================================
+
+
+====================
+AUTOR: Paulo Vieira
+====================
+

@@ -23,6 +23,10 @@ namespace ConversordeTemperatura.Classes
 
         #region CONSTRUTORES
 
+        /// <summary>
+        /// Construtor padrão.
+        /// </summary>
+        /// <param name="g">Decimal contendo o valor do grau a ser convertido.</param>
         public Temperatura(decimal g)
         {
             graus = g;
@@ -34,31 +38,55 @@ namespace ConversordeTemperatura.Classes
 
         #region MÉTODOS
 
+        /// <summary>
+        /// Método estático que faz a conversão de Celsuis para Kelvin.
+        /// </summary>
+        /// <returns>Retorna um Decimal contendo o valor da conversão.</returns>
         public static decimal CelsiusParaKelvin()
         {
             return graus + ZeroKelvin;
         }
 
+        /// <summary>
+        /// Método estático que faz a conversão de Kelvin para Celsius.
+        /// </summary>
+        /// <returns>Retorna um Decimal contendo o valor da conversão.</returns>
         public static decimal KelvinParaCelsius()
         {
             return graus - ZeroKelvin;
         }
 
+        /// <summary>
+        /// Método estático que faz a conversão de Fahrenheit para Celsius.
+        /// </summary>
+        /// <returns>Retorna um Decimal contendo o valor da conversão.</returns>
         public static decimal FahrenheitParaCelsius()
         {
             return (1.8m * graus) + 32;
         }
 
+        /// <summary>
+        /// Método estático que faz a conversão de Celsuis para Fahrenheit.
+        /// </summary>
+        /// <returns>Retorna um Decimal contendo o valor da conversão.</returns>
         public static decimal CelsiusParaFahrenheit()
         {
             return (graus - 32) / 1.8m;
         }
 
+        /// <summary>
+        /// Método estático que faz a conversão de Kelvin para Fahrenheit.
+        /// </summary>
+        /// <returns>Retorna um Decimal contendo o valor da conversão.</returns>
         public static decimal KelvinParaFahrenheit()
         {
             return (KelvinParaCelsius() - 32) / 1.8m;
         }
 
+        /// <summary>
+        /// Método estático que faz a conversão de Fahrenheit para Kelvin.
+        /// </summary>
+        /// <returns>Retorna um Decimal contendo o valor da conversão.</returns>
         public static decimal FahrenheitParaKelvin()
         {
             return FahrenheitParaCelsius() + ZeroKelvin;

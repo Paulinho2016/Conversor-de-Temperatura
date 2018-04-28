@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace ConversordeTemperatura.Classes
 {
@@ -178,6 +174,7 @@ namespace ConversordeTemperatura.Classes
                     break;
 
                 case 2:
+                    ExibirInformacoes();
                     break;
 
                 case 3:
@@ -490,6 +487,27 @@ namespace ConversordeTemperatura.Classes
                     ValorGraus.Replace(",", ".");
             }
             return true;
+        }
+
+        /// <summary>
+        /// Método que invoca a exibição das informações da aplicação.
+        /// </summary>
+        static void ExibirInformacoes()
+        {
+            Console.Clear();
+
+            using (StreamReader Leitor = new StreamReader($"{Environment.CurrentDirectory}\\info.txt"))
+            {
+                while (!Leitor.EndOfStream)
+                {
+                    Console.WriteLine(Leitor.ReadLine());
+                   
+                }
+            }
+
+            Console.Write("Aperte qualquer tecla para voltar");
+            Console.ReadKey();
+            MenuPrincipal();
         }
 
         #endregion
